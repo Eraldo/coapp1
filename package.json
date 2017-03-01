@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "coapp",
+  "author": "Eraldo Energy",
+  "homepage": "http://www.colegend.com/",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -29,7 +29,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.1.3",
-    "typescript": "2.0.9"
+    "typescript": "2.0.9",
+    "typescript-extends": "^1.0.1"
   },
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
@@ -47,5 +48,8 @@
       "locator": "ios"
     }
   ],
-  "description": "coapp: An Ionic project"
+  "description": "coapp: colegend app",
+  "config": {
+    "ionic_webpack": "./webpack.config.js"
+  }
 }
