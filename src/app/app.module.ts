@@ -6,16 +6,18 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { ManagerPage } from '../pages/manager/manager';
 import { SandboxPage } from '../pages/sandbox/sandbox';
+import {FeedbackPage} from "../pages/feedback/feedback";
 import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
     App,
     AboutPage,
-    ContactPage,
     HomePage,
+    ContactPage,
     ManagerPage,
     SandboxPage,
+    FeedbackPage,
     TabsPage
   ],
   imports: [
@@ -25,8 +27,11 @@ import { TabsPage } from '../pages/tabs/tabs';
   entryComponents: [
     App,
     AboutPage,
-    ContactPage,
     HomePage,
+    ContactPage,
+    ManagerPage,
+    SandboxPage,
+    FeedbackPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
