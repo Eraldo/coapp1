@@ -4,7 +4,6 @@ import { App } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-// import { ManagerPage } from '../pages/manager/manager';
 import { SandboxPage } from '../pages/sandbox/sandbox';
 import {FeedbackPage} from "../pages/feedback/feedback";
 import { TabsPage } from '../pages/tabs/tabs';
@@ -16,6 +15,7 @@ import {VisionPage} from "../pages/vision/vision";
 import {SupportPage} from "../pages/support/support";
 import {SettingsPage} from "../pages/settings/settings";
 import {MANAGER_DECLARATIONS} from "../pages/manager";
+import {MomentModule} from "angular2-moment";
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import {MANAGER_DECLARATIONS} from "../pages/manager";
     TabsPage
   ],
   imports: [
-    IonicModule.forRoot(App)
+    IonicModule.forRoot(App),
+    MomentModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
