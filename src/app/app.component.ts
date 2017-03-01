@@ -48,14 +48,6 @@ export class App {
       { title: 'Sandbox', component: SandboxPage }
     ];
 
-    // platform.ready().then(() => {
-    //   // Okay, so the platform is ready and our plugins are available.
-    //   // Here you can do any higher level native things you might need.
-    //   if (platform.is('cordova')) {
-    //     StatusBar.styleDefault();
-    //     Splashscreen.hide();
-    //   }
-    // });
   }
 
   initializeApp() {
