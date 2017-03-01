@@ -6,6 +6,16 @@ import {ManagerPage} from '../pages/manager/manager';
 import {SandboxPage} from "../pages/sandbox/sandbox";
 import { TabsPage } from '../pages/tabs/tabs';
 import {FeedbackPage} from "../pages/feedback/feedback";
+import {HomePage} from "../pages/home/home";
+import {JournalPage} from "../pages/journal/journal";
+import {CommunityPage} from "../pages/community/community";
+import {JourneyPage} from "../pages/journey/journey";
+import {AcademyPage} from "../pages/academy/academy";
+import {VisionPage} from "../pages/vision/vision";
+import {SupportPage} from "../pages/support/support";
+import {AboutPage} from "../pages/about/about";
+import {SettingsPage} from "../pages/settings/settings";
+import {ContactPage} from "../pages/contact/contact";
 
 
 @Component({
@@ -23,9 +33,19 @@ export class App {
 
     // used for an example of ngFor and navigation
     this.pages = [
+      { title: 'Home', component: HomePage },
       { title: 'Manager', component: ManagerPage },
-      { title: 'Sandbox', component: SandboxPage },
-      { title: 'Feedback', component: FeedbackPage }
+      { title: 'Journal', component: JournalPage },
+      { title: 'Community', component: CommunityPage },
+      { title: 'Journey', component: JourneyPage },
+      { title: 'Academy', component: AcademyPage },
+      { title: 'Vision', component: VisionPage },
+      { title: 'Support', component: SupportPage },
+      { title: 'About', component: AboutPage },
+      { title: 'Settings', component: SettingsPage },
+      { title: 'Contact', component: ContactPage },
+      { title: 'Feedback', component: FeedbackPage },
+      { title: 'Sandbox', component: SandboxPage }
     ];
 
     // platform.ready().then(() => {
