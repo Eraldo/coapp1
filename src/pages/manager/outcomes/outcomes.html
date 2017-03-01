@@ -1,20 +1,45 @@
 <ion-header>
-
-  <ion-navbar>
+  <ion-navbar color="manager">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
-      <ion-select class="outcome-scope-select" [(ngModel)]="scope" [selectOptions]="selectScopeOptions">
-        <ion-option value="{{scope}}" *ngFor="let scope of scopes">{{scope}}</ion-option>
-      </ion-select>
-      outcomes
+      Outcomes
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only class="filter-button">
         <ion-icon name="funnel"></ion-icon>
       </button>
+      <button ion-button icon-only class="search-button">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only class="quickadd-button">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-button icon-only class="options-button">
+        <ion-icon name="more"></ion-icon>
+      </button>
     </ion-buttons>
-
   </ion-navbar>
-
+  <ion-toolbar color="manager">
+    <ion-segment [(ngModel)]="scope" color="light">
+      <ion-segment-button value="inbox">
+        Inbox
+      </ion-segment-button>
+      <ion-segment-button value="daily">
+        Daily
+      </ion-segment-button>
+      <ion-segment-button value="weekly">
+        Weekly
+      </ion-segment-button>
+      <ion-segment-button value="monthly">
+        Monthly
+      </ion-segment-button>
+      <ion-segment-button value="yearly">
+        Yearly
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 

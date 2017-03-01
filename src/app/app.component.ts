@@ -40,8 +40,8 @@ export class App {
       { title: 'Academy', component: AcademyPage },
       { title: 'Vision', component: VisionPage },
       { title: 'Support', component: SupportPage },
-      { title: 'About', component: AboutPage },
       { title: 'Settings', component: SettingsPage },
+      { title: 'About', component: AboutPage },
       { title: 'Contact', component: ContactPage },
       { title: 'Feedback', component: FeedbackPage },
       { title: 'Sandbox', component: SandboxPage }
