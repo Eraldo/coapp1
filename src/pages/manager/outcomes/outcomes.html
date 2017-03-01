@@ -2,7 +2,7 @@
 
   <ion-navbar>
     <ion-title>
-      <ion-select class="outcome-scope-select" [(ngModel)]="scope">
+      <ion-select class="outcome-scope-select" [(ngModel)]="scope" [selectOptions]="selectScopeOptions">
         <ion-option value="{{scope}}" *ngFor="let scope of scopes">{{scope}}</ion-option>
       </ion-select>
       outcomes

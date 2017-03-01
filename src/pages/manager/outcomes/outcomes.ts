@@ -19,11 +19,16 @@ export class OutcomesPage {
   outcomes: Observable<Outcome[]>;
   scope: OutcomeScope;
   scopes: OutcomeScope[];
+  selectScopeOptions: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.outcomes = this.findOutcomes();
     this.scope = OutcomeScope.INBOX;
-    this.scopes = OUTCOME_SCOPES
+    this.scopes = OUTCOME_SCOPES;
+    this.selectScopeOptions= {
+      title: 'Scope',
+      // subTitle: 'Select your toppings'
+    };
   }
 
   private findOutcomes(): Observable<Outcome[]> {
