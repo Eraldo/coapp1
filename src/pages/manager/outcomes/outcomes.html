@@ -23,20 +23,8 @@
   </ion-navbar>
   <ion-toolbar color="manager">
     <ion-segment [(ngModel)]="scope" color="light">
-      <ion-segment-button value="inbox">
-        Inbox
-      </ion-segment-button>
-      <ion-segment-button value="daily">
-        Daily
-      </ion-segment-button>
-      <ion-segment-button value="weekly">
-        Weekly
-      </ion-segment-button>
-      <ion-segment-button value="monthly">
-        Monthly
-      </ion-segment-button>
-      <ion-segment-button value="yearly">
-        Yearly
+      <ion-segment-button value="{{scope}}" *ngFor="let scope of scopes">
+        {{scope}}
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
