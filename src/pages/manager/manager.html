@@ -3,13 +3,27 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Manager</ion-title>
+    <ion-title>
+      Manager
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only class="search-button">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only class="quickadd-button">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button ion-button icon-only class="options-button">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to the manager!</h2>
-  <p>
-    Text here.
-  </p>
+  <ion-tabs>
+    <ion-tab [root]="agendaPage" tabTitle="Agenda" tabIcon="clock"></ion-tab>
+    <ion-tab [root]="actionPage" tabTitle="Action" tabIcon="checkbox"></ion-tab>
+    <ion-tab [root]="outcomesPage" tabTitle="Outcomes" tabIcon="filing"></ion-tab>
+  </ion-tabs>
 </ion-content>

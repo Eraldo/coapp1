@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      <ion-select class="outcome-scope-select" [(ngModel)]="scope">
+        <ion-option value="{{scope}}" *ngFor="let scope of scopes">{{scope}}</ion-option>
+      </ion-select>
+      outcomes
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only class="filter-button">
+        <ion-icon name="funnel"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list class="outcomes">
+    <ion-item-sliding *ngFor="let outcome of outcomes | async">
+      <button ion-item class="outcome">
+        <div class="outcome-info">
+          <h2 class="outcome-name">{{outcome.name}}</h2>
+        </div>
+      </button>
+      <ion-item-options class="outcome-options">
+        <button ion-button color="danger" class="option option-remove">Remove</button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -4,7 +4,6 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 
 import {ManagerPage} from '../pages/manager/manager';
 import {SandboxPage} from "../pages/sandbox/sandbox";
-import { TabsPage } from '../pages/tabs/tabs';
 import {FeedbackPage} from "../pages/feedback/feedback";
 import {HomePage} from "../pages/home/home";
 import {JournalPage} from "../pages/journal/journal";
@@ -24,7 +23,7 @@ import {ContactPage} from "../pages/contact/contact";
 export class App {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = TabsPage;
+  rootPage = ManagerPage;
 
   pages: Array<{title: string, component: any}>;
 

@@ -1,3 +1,13 @@
+export enum OutcomeScope {
+  INBOX = <any>'inbox',
+  DAILY = <any>'daily',
+  WEEKLY = <any>'weekly',
+  MONTHLY = <any>'monthly',
+  YEARLY = <any>'yearly',
+}
+
+export const OUTCOME_SCOPES: OutcomeScope[] = [OutcomeScope.INBOX, OutcomeScope.DAILY, OutcomeScope.WEEKLY, OutcomeScope.MONTHLY, OutcomeScope.YEARLY];
+
 export enum OutcomeType {
   TEXT = <any>'text'
 }
