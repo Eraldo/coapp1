@@ -17,7 +17,7 @@ export class OutcomesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
     this.outcomes = this.findOutcomes();
-    this.scope = OutcomeScope.INBOX;
+    this.scope = OutcomeScope.DAY;
     this.scopes = OUTCOME_SCOPES;
     this.ordering = false;
   }

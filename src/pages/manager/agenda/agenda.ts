@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {OutcomeScope} from "../../../models";
+import {OutcomeScope, OUTCOME_SCOPES} from "../../../models";
 
 /*
   Generated class for the Agenda page.
@@ -17,8 +17,8 @@ export class AgendaPage {
   scopes: OutcomeScope[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.scope = OutcomeScope.DAILY;
-    this.scopes = [OutcomeScope.DAILY, OutcomeScope.WEEKLY, OutcomeScope.MONTHLY]
+    this.scope = OutcomeScope.DAY;
+    this.scopes = OUTCOME_SCOPES
   }
 
   ionViewDidLoad() {
