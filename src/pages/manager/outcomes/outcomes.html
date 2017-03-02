@@ -1,6 +1,6 @@
 <script src="outcome-options/outcome-options.ts"></script>
 <script src="outcomes.ts"></script>
-<ion-header>
+<ion-header *ngIf="!ordering">
   <ion-navbar color="manager">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -26,14 +26,18 @@
         {{scope}}
       </ion-segment-button>
     </ion-segment>
-    <ion-buttons start *ngIf="ordering">
+  </ion-toolbar>
+</ion-header>
+<ion-header *ngIf="ordering">
+  <ion-toolbar color="manager">
+    <ion-buttons *ngIf="ordering" right>
       <button ion-button (click)="reorderDone()">
         <ion-icon name="checkmark"></ion-icon>
       </button>
     </ion-buttons>
-
   </ion-toolbar>
 </ion-header>
+
 
 <ion-menu [content]="filterContent" side="right" id="filter-menu">
   <!--<ion-content>-->
@@ -74,7 +78,7 @@
       </ion-item-sliding>
     </ion-item-group>
   </ion-list>
-  <ion-fab bottom right>
+  <ion-fab *ngIf="!ordering" bottom right>
     <button ion-fab mini menuToggle="filter-menu">
       <ion-icon name="funnel"></ion-icon>
     </button>
