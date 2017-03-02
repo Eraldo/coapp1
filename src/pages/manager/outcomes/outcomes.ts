@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams, reorderArray, PopoverController} from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 import {Observable} from "rxjs";
 import {Outcome, OutcomeScope, OUTCOME_SCOPES} from "../../../models";
 import moment = require("moment");
@@ -13,13 +13,11 @@ export class OutcomesPage {
   outcomes: Observable<Outcome[]>;
   scope: OutcomeScope;
   scopes: OutcomeScope[];
-  ordering: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.outcomes = this.findOutcomes();
     this.scope = OutcomeScope.DAY;
     this.scopes = OUTCOME_SCOPES;
-    this.ordering = false;
   }
 
   private findOutcomes(): Observable<Outcome[]> {
@@ -50,17 +48,6 @@ export class OutcomesPage {
 
       return outcomesArray;
     });
-  }
-
-  reorder(indexes): void {
-    console.log(indexes.from + ' ' + indexes.to);
-    this.outcomes = this.outcomes.map<Outcome[]>(outcomesArray => {
-      return reorderArray(outcomesArray, indexes)
-    });
-  }
-
-  toggleReorder(): void {
-    this.ordering = !this.ordering;
   }
 
   ionViewDidLoad() {
