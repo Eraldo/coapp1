@@ -3,7 +3,6 @@ import {NavController, NavParams, reorderArray, PopoverController} from 'ionic-a
 import {Observable} from "rxjs";
 import {Outcome, OutcomeScope, OUTCOME_SCOPES} from "../../../models";
 import moment = require("moment");
-import {OutcomesOptionsPage} from "./outcome-options/outcome-options";
 
 @Component({
   selector: 'page-outcomes',
@@ -44,19 +43,6 @@ export class OutcomesPage {
 
   }
 
-  showOptions(event) {
-    let popover = this.popoverCtrl.create(OutcomesOptionsPage);
-    popover.onDidDismiss(data => {
-      console.log(data);
-      if (!!data) {
-        this.ordering = true;
-      }
-    });
-    popover.present({
-      ev: event
-    });
-  }
-
   delete(outcome: Outcome): void {
     this.outcomes = this.outcomes.map<Outcome[]>(outcomesArray => {
       const outcomeIndex = outcomesArray.indexOf(outcome);
@@ -73,8 +59,8 @@ export class OutcomesPage {
     });
   }
 
-  reorderDone(): void {
-    this.ordering = false;
+  toggleReorder(): void {
+    this.ordering = !this.ordering;
   }
 
   ionViewDidLoad() {
