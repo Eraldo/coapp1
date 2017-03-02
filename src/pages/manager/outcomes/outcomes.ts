@@ -1,15 +1,10 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams, reorderArray, PopoverController} from 'ionic-angular';
 import {Observable} from "rxjs";
 import {Outcome, OutcomeScope, OUTCOME_SCOPES} from "../../../models";
 import moment = require("moment");
+import {OutcomesOptionsPage} from "./outcome-options/outcome-options";
 
-/*
-  Generated class for the Outcomes page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-outcomes',
   templateUrl: 'outcomes.html'
@@ -19,16 +14,13 @@ export class OutcomesPage {
   outcomes: Observable<Outcome[]>;
   scope: OutcomeScope;
   scopes: OutcomeScope[];
-  selectScopeOptions: any;
+  ordering: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
     this.outcomes = this.findOutcomes();
     this.scope = OutcomeScope.INBOX;
     this.scopes = OUTCOME_SCOPES;
-    this.selectScopeOptions= {
-      title: 'Scope',
-      // subTitle: 'Select your toppings'
-    };
+    this.ordering = false;
   }
 
   private findOutcomes(): Observable<Outcome[]> {
@@ -50,6 +42,39 @@ export class OutcomesPage {
       },
     ]);
 
+  }
+
+  showOptions(event) {
+    let popover = this.popoverCtrl.create(OutcomesOptionsPage);
+    popover.onDidDismiss(data => {
+      console.log(data);
+      if (!!data) {
+        this.ordering = true;
+      }
+    });
+    popover.present({
+      ev: event
+    });
+  }
+
+  delete(outcome: Outcome): void {
+    this.outcomes = this.outcomes.map<Outcome[]>(outcomesArray => {
+      const outcomeIndex = outcomesArray.indexOf(outcome);
+      outcomesArray.splice(outcomeIndex, 1);
+
+      return outcomesArray;
+    });
+  }
+
+  reorder(indexes): void {
+    console.log(indexes.from + ' ' + indexes.to);
+    this.outcomes = this.outcomes.map<Outcome[]>(outcomesArray => {
+      return reorderArray(outcomesArray, indexes)
+    });
+  }
+
+  reorderDone(): void {
+    this.ordering = false;
   }
 
   ionViewDidLoad() {

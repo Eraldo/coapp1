@@ -1,3 +1,5 @@
+<script src="outcome-options/outcome-options.ts"></script>
+<script src="outcomes.ts"></script>
 <ion-header>
   <ion-navbar color="manager">
     <button ion-button menuToggle>
@@ -7,42 +9,74 @@
       Outcomes
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only class="filter-button">
-        <ion-icon name="funnel"></ion-icon>
-      </button>
       <button ion-button icon-only class="search-button">
         <ion-icon name="search"></ion-icon>
       </button>
       <button ion-button icon-only class="quickadd-button">
         <ion-icon name="add"></ion-icon>
       </button>
-      <button ion-button icon-only class="options-button">
+      <button ion-button icon-only class="options-button" (click)="showOptions($event)">
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
   <ion-toolbar color="manager">
-    <ion-segment [(ngModel)]="scope" color="light">
-      <ion-segment-button value="{{scope}}" *ngFor="let scope of scopes">
+    <ion-segment *ngIf="!ordering" [(ngModel)]="scope" color="light">
+      <ion-segment-button [value]="scope" *ngFor="let scope of scopes">
         {{scope}}
       </ion-segment-button>
     </ion-segment>
+    <ion-buttons start *ngIf="ordering">
+      <button ion-button (click)="reorderDone()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content padding>
-  <ion-list class="outcomes">
-    <ion-item-sliding *ngFor="let outcome of outcomes | async">
-      <button ion-item class="outcome">
-        <div class="outcome-info">
-          <h2 class="outcome-name">{{outcome.name}}</h2>
-          <span class="outcome-creation">{{outcome.createdAt | amCalendar}}</span>
-        </div>
+<ion-menu [content]="filterContent" side="right" id="filter-menu">
+  <!--<ion-content>-->
+  <ion-toolbar>
+    <ion-title>Filters</ion-title>
+  </ion-toolbar>
+  <ion-list>
+    <ion-item>
+      <ion-label>Scope</ion-label>
+      <ion-select class="outcome-scope-select" [(ngModel)]="scope">
+        <ion-option value="{{scope}}" *ngFor="let scope of scopes">{{scope}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <button ion-button menuClose="filter-menu">
+        Filter
       </button>
-      <ion-item-options class="outcome-options">
-        <button ion-button color="danger" class="option option-remove">Remove</button>
-      </ion-item-options>
-    </ion-item-sliding>
+    </ion-item>
   </ion-list>
+  <!--</ion-content>-->
+</ion-menu>
+
+<ion-content #filterContent>
+  <ion-list class="outcomes">
+    <ion-item-group [reorder]="ordering" (ionItemReorder)="reorder($event)">
+      <ion-item-sliding *ngFor="let outcome of outcomes | async">
+        <button ion-item class="outcome">
+          <ion-icon name="checkmark-circle-outline" color="light" item-left></ion-icon>
+          {{outcome.name}}
+          <ion-icon name="star-outline" item-right color="light"></ion-icon>
+        </button>
+        <ion-item-options class="outcome-options">
+          <button ion-button color="danger" class="option option-delete" (click)="delete(outcome)">
+            <ion-icon name="trash"></ion-icon>
+            Delete
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-item-group>
+  </ion-list>
+  <ion-fab bottom right>
+    <button ion-fab mini menuToggle="filter-menu">
+      <ion-icon name="funnel"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

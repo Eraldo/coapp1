@@ -1,3 +1,4 @@
+<script src="agenda.ts"></script>
 <ion-header>
 
   <ion-navbar color="manager">
@@ -19,6 +20,13 @@
       </button>
     </ion-buttons>
   </ion-navbar>
+  <ion-toolbar color="manager">
+    <ion-segment [(ngModel)]="scope" color="light">
+      <ion-segment-button value="{{scope}}" *ngFor="let scope of scopes">
+        {{scope}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 
 </ion-header>
 
