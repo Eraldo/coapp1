@@ -8,6 +8,9 @@
       Action
     </ion-title>
     <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="volume-off"></ion-icon>
+      </button>
       <button ion-button icon-only class="options-button">
         <ion-icon name="more"></ion-icon>
       </button>
@@ -17,13 +20,36 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <button ion-item>
+      <ion-icon name="checkmark-circle-outline" color="light" item-left></ion-icon>
+      mobile app
+    </button>
+  </ion-list>
+  <ion-list inset>
+    <button ion-item>
+      <ion-icon name="checkbox" color="community" item-left></ion-icon>
+      coding home view
+    </button>
+    <button ion-item>
+      <ion-icon name="checkbox-outline" color="light" item-left></ion-icon>
+      coding action view
+    </button>
+    <ion-item style="padding-left: 16px">
+      <ion-icon name="checkbox-outline" color="light" item-left></ion-icon>
+      <ion-input type="text" placeholder="Step" item-inset-input inset></ion-input>
+    </ion-item>
+  </ion-list>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <ion-buttons>
+    <button ion-button icon-only outline color="light">
+      <ion-icon name="musical-note"></ion-icon>
+    </button>
+      Session: 24:00
+    <ion-buttons end>
       <button ion-button icon-only>
         <ion-icon name="play"></ion-icon>
       </button>
