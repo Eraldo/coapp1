@@ -27,7 +27,7 @@
       mobile app
     </button>
   </ion-list>
-  <ion-list style="margin-left: 16px">
+  <ion-list margin-left>
     <button ion-item>
       <ion-icon name="checkbox" color="community" item-left></ion-icon>
       coding home view
@@ -45,10 +45,12 @@
 
 <ion-footer>
   <ion-toolbar>
-    <button ion-button icon-only outline color="light">
-      <ion-icon name="musical-note"></ion-icon>
-    </button>
-    <button ion-button clear style="text-transform: none">Session: 24:00</button>
+    <ion-buttons left>
+      <button ion-button icon-only outline color="light">
+        <ion-icon name="musical-note"></ion-icon>
+      </button>
+    </ion-buttons>
+    <button ion-button clear><span text-capitalize>Session</span>: 24:00</button>
     <ion-buttons end>
       <button ion-button icon-only>
         <ion-icon name="play"></ion-icon>
