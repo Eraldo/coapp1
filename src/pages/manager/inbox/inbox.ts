@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup} from "@angular/forms";
-import {OUTCOME_SCOPES, OutcomeScope, OUTCOME_STATUSES, OutcomeStatus} from "../../../models";
+import {OUTCOME_SCOPES, OutcomeScope, OUTCOME_STATUSES, OutcomeStatus} from "api/models";
 
 @Component({
   selector: 'page-inbox',
@@ -21,7 +21,6 @@ export class InboxPage {
       scope: [OutcomeScope.DAY, Validators.required],
       deadline: [''],
       start: [''],
-      role: [''],
       content: ['I want a modern app for colgend!'],
       steps: [''],
     });

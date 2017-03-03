@@ -12,23 +12,29 @@ export enum OutcomeScope {
   MONTH = <any>'month',
   YEAR = <any>'year',
 }
-
 export const OUTCOME_SCOPES: OutcomeScope[] = [OutcomeScope.DAY, OutcomeScope.WEEK, OutcomeScope.MONTH, OutcomeScope.YEAR];
 
 export enum OutcomeType {
-  TEXT = <any>'text'
+  SYSTEM = <any>'system'
 }
 
 export interface Outcome {
   _id?: string;
   name?: string;
-  createdAt?: Date;
+  status?: OutcomeStatus;
+  scope?: OutcomeScope;
+  deadline?: Date;
+  start?: Date;
+  content?: string;
   type?: OutcomeType;
-  // steps: Step[]
+  createdAt?: Date;
 }
 
-// export interface Step {
-//   _id?: string;
-//   outcomeId?: string;
-//   name?: string;
-// }
+export interface Step {
+  _id?: string;
+  outcomeId?: string;
+  name?: string;
+  done?: boolean;
+  createdAt?: Date;
+
+}
