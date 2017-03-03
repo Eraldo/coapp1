@@ -1,8 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {Observable} from "rxjs";
+import {Outcomes} from 'api/collections';
 import {Outcome, OutcomeScope, OUTCOME_SCOPES} from "api/models";
-import moment = require("moment");
 
 @Component({
   selector: 'page-outcomes',
@@ -10,43 +9,21 @@ import moment = require("moment");
 })
 export class OutcomesPage {
 
-  outcomes: Observable<Outcome[]>;
+  outcomes;
   scope: OutcomeScope;
   scopes: OutcomeScope[];
 
+  ngOnInit() {
+    this.outcomes = Outcomes.find({}).zone();
+  }
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.outcomes = this.findOutcomes();
     this.scope = OutcomeScope.DAY;
     this.scopes = OUTCOME_SCOPES;
   }
 
-  private findOutcomes(): Observable<Outcome[]> {
-    return Observable.of([
-      {
-        _id: '0',
-        name: 'clean garage',
-        createdAt: moment().subtract(1, 'hours').toDate(),
-      },
-      {
-        _id: '1',
-        name: 'mobile app',
-        createdAt: moment().subtract(2, 'hours').toDate(),
-      },
-      {
-        _id: '2',
-        name: 'desktop app',
-        createdAt: moment().subtract(2, 'hours').toDate(),
-      },
-    ]);
-
-  }
-
   delete(outcome: Outcome): void {
-    this.outcomes = this.outcomes.map<Outcome[]>(outcomesArray => {
-      const outcomeIndex = outcomesArray.indexOf(outcome);
-      outcomesArray.splice(outcomeIndex, 1);
-
-      return outcomesArray;
+    Outcomes.remove({_id: outcome._id}).subscribe(() => {
     });
   }
 
