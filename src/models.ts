@@ -1,3 +1,11 @@
+export enum OutcomeStatus {
+  OPEN = <any>'open',
+  WAITING = <any>'waiting',
+  DONE = <any>'done',
+  CANCELED = <any>'canceled',
+}
+export const OUTCOME_STATUSES: OutcomeStatus[] = [OutcomeStatus.OPEN, OutcomeStatus.WAITING, OutcomeStatus.DONE, OutcomeStatus.CANCELED];
+
 export enum OutcomeScope {
   DAY = <any>'day',
   WEEK = <any>'week',

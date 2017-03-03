@@ -18,26 +18,59 @@
 
 
 <ion-content>
-  <ion-list>
-    <button ion-item>
-      <ion-icon name="checkmark-circle-outline" color="light" item-left></ion-icon>
-      <h2>crazy ideas database</h2>
-      <p>Scope: ---</p>
-      <p>Role: ---</p>
-      <p>Deadline: ---</p>
-      <p>Start: ---</p>
-      <p>Steps: 0</p>
-      <p>Notes: ---</p>
+  <form [formGroup]="outcome" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Status</ion-label>
+      <ion-select formControlName="status">
+        <ion-option [value]="status" *ngFor="let status of statuses">{{status}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Scope</ion-label>
+      <ion-select formControlName="scope">
+        <ion-option [value]="scope" *ngFor="let scope of scopes">{{scope}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Deadline</ion-label>
+      <ion-datetime formControlName="deadline"></ion-datetime>
+      <!--<ion-input type="date" formControlName="deadline"></ion-input>-->
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Start</ion-label>
+      <ion-datetime formControlName="start"></ion-datetime>
+      <!--<ion-input type="date" formControlName="start"></ion-input>-->
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Role</ion-label>
+      <ion-select formControlName="role">
+        <ion-option [value]="role" *ngFor="let role of ['Eraldo', 'Erinna']">{{role}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Content</ion-label>
+      <ion-textarea formControlName="content"></ion-textarea>
+    </ion-item>
+    <!--<button ion-button type="submit" [disabled]="!outcome.valid">Submit</button>-->
+  </form>
 
-    </button>
-  </ion-list>
   <ion-fab bottom left>
-    <button ion-fab color="danger"><ion-icon name="trash"></ion-icon></button>
+    <button ion-fab color="danger">
+      <ion-icon name="trash"></ion-icon>
+    </button>
   </ion-fab>
   <ion-fab bottom center>
-    <button ion-fab><ion-icon name="medkit"></ion-icon></button>
+    <button ion-fab>
+      <ion-icon name="medkit"></ion-icon>
+    </button>
   </ion-fab>
   <ion-fab bottom right>
-    <button ion-fab color="secondary"><ion-icon name="checkmark"></ion-icon></button>
+    <button ion-fab color="secondary">
+      <ion-icon name="checkmark"></ion-icon>
+    </button>
   </ion-fab>
 </ion-content>
