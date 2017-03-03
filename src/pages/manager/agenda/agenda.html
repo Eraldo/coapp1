@@ -7,9 +7,6 @@
       Agenda
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only class="calendar-button">
-        <ion-icon name="calendar"></ion-icon>
-      </button>
       <button ion-button icon-only class="options-button">
         <ion-icon name="more"></ion-icon>
       </button>
@@ -17,9 +14,32 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <button ion-button clear>
-      {{date | amDateFormat:'MMM D, Y'}}
+    <ion-icon name="calendar"></ion-icon>&nbsp;
+    {{date | amDateFormat:'MMM D, Y'}}
   </button>
-  <p>TODO: Agenda content</p>
+
+  <ion-item-group>
+    <ion-item-divider color="light"><ion-icon name="locate"></ion-icon> Focus</ion-item-divider>
+    <button ion-item>
+      <ion-icon name="checkmark-circle" color="community" item-left></ion-icon>
+      clean garage
+    </button>
+    <button ion-item>
+      <ion-icon name="checkmark-circle-outline" color="light" item-left></ion-icon>
+      mobile app
+    </button>
+    <button ion-item>
+      <ion-icon name="checkmark-circle-outline" color="light" item-left></ion-icon>
+      desktop app
+    </button>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light"><ion-icon name="time"></ion-icon> Schedule</ion-item-divider>
+    <ion-item><span item-left>10:04</span> morning routine</ion-item>
+    <ion-item><span item-left>16:04</span> gathering</ion-item>
+  </ion-item-group>
+
 </ion-content>
