@@ -11,11 +11,13 @@ export class AgendaPage {
   scope: OutcomeScope;
   scopes: OutcomeScope[];
   date: Date;
+  isoDate: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.scope = OutcomeScope.DAY;
     this.scopes = OUTCOME_SCOPES;
     this.date = moment().toDate();
+    this.isoDate = this.date.toISOString()
   }
 
   ionViewDidLoad() {
