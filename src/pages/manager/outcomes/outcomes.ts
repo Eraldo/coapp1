@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {Observable} from "rxjs";
-import {Outcome, OutcomeScope, OUTCOME_SCOPES} from "../../../models";
+import {Outcome, OutcomeScope, OUTCOME_SCOPES} from "api/models";
 import moment = require("moment");
 
 @Component({
