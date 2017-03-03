@@ -1,6 +1,4 @@
-<script src="agenda.ts"></script>
 <ion-header>
-
   <ion-navbar color="manager">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -9,28 +7,21 @@
       Agenda
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only class="search-button">
-        <ion-icon name="search"></ion-icon>
-      </button>
-      <button ion-button icon-only class="quickadd-button">
-        <ion-icon name="add"></ion-icon>
-      </button>
       <button ion-button icon-only class="options-button">
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-  <ion-toolbar color="manager">
-    <ion-segment [(ngModel)]="scope" color="light">
-      <ion-segment-button value="{{scope}}" *ngFor="let scope of scopes">
-        {{scope}}
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
-
 </ion-header>
 
-
 <ion-content padding>
-<p>TODO: Agenda content</p>
+  <button ion-button icon-only clear>
+    <ion-icon name="arrow-dropleft"></ion-icon>
+  </button>
+  {{date | amDateFormat:'MMM D, Y'}}
+  <!--<ion-datetime [(ngModel)]="date" style="display: inline-flex; text-align: center"></ion-datetime>-->
+  <button ion-button icon-only clear>
+    <ion-icon name="arrow-dropright"></ion-icon>
+  </button>
+  <p>TODO: Agenda content</p>
 </ion-content>

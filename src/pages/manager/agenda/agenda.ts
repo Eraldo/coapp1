@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {OutcomeScope, OUTCOME_SCOPES} from "../../../models";
+import moment = require("moment");
 
-/*
-  Generated class for the Agenda page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-agenda',
   templateUrl: 'agenda.html'
@@ -15,10 +10,12 @@ import {OutcomeScope, OUTCOME_SCOPES} from "../../../models";
 export class AgendaPage {
   scope: OutcomeScope;
   scopes: OutcomeScope[];
+  date: Date;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.scope = OutcomeScope.DAY;
-    this.scopes = OUTCOME_SCOPES
+    this.scopes = OUTCOME_SCOPES;
+    this.date = moment().toDate();
   }
 
   ionViewDidLoad() {
