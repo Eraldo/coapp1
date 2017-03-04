@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import moment = require("moment");
 
 /*
   Generated class for the Journal page.
@@ -12,8 +13,11 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'journal.html'
 })
 export class JournalPage {
+  date: Date;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.date = moment().toDate();
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JournalPage');

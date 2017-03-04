@@ -23,7 +23,7 @@ import {ContactPage} from "../pages/contact/contact";
 export class App {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = HomePage;
+  rootPage = JournalPage;
 
   pages: Array<{title: string, component: any}>;
 
