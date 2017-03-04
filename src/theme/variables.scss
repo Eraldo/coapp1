@@ -31,10 +31,7 @@ $colors: (
   dark:       #222,
   home:       #00BCD4,
   manager:    #2196F3,
-  //manager:(
-  //  base: #2196F3,
-  //  contrast: #ffffff
-  //),
+  // content
   journal:    #FFC107,
   community:  #4CAF50,
   journey:    #FF9800,
@@ -45,6 +42,14 @@ $colors: (
   about:      grey,
   contact:    grey,
   feedback:   grey,
+  // life areas
+  area-1:     red,
+  area-2:     orange,
+  area-3:     yellow,
+  area-4:     green,
+  area-5:     cyan,
+  area-6:     blue,
+  area-7:     purple,
 );
 
 
