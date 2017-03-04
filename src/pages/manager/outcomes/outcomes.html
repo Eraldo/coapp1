@@ -54,7 +54,7 @@
   <ion-list class="outcomes">
     <ion-item-group>
       <ion-item-sliding *ngFor="let outcome of outcomes | async">
-        <button ion-item class="outcome">
+        <button ion-item class="outcome" (click)="showOutcome(outcome)">
           <ion-icon name="checkmark-circle-outline" color="light" item-left></ion-icon>
           {{outcome.name}}
           <ion-icon name="star-outline" item-right color="light"></ion-icon>

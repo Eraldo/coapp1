@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {Outcomes} from 'api/collections';
 import {Outcome, OutcomeScope, OUTCOME_SCOPES} from "api/models";
+import {OutcomePage} from "../outcome/outcome";
 
 @Component({
   selector: 'page-outcomes',
@@ -25,6 +26,10 @@ export class OutcomesPage {
   delete(outcome: Outcome): void {
     Outcomes.remove({_id: outcome._id}).subscribe(() => {
     });
+  }
+
+  showOutcome(outcome: Outcome): void {
+    this.navCtrl.push(OutcomePage, {outcome});
   }
 
   ionViewDidLoad() {

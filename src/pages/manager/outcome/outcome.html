@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar color="manager">
+    <ion-title>Outcome</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  {{outcome.name}}
+  <ion-scroll scrollY="true">
+    <div *ngFor="let step of steps | async">
+      {{step.name}}
+    </div>
+  </ion-scroll>
+</ion-content>
