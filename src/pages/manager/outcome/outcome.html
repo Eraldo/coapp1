@@ -5,10 +5,17 @@
 </ion-header>
 
 <ion-content padding>
-  {{outcome.name}}
-  <ion-scroll scrollY="true">
-    <div *ngFor="let step of steps | async">
+  <ion-title>
+    {{outcome.name}}
+  </ion-title>
+  <ion-list margin-left>
+    <button ion-item *ngFor="let step of steps | async">
+      <ion-icon name="checkbox" color="community" item-left></ion-icon>
       {{step.name}}
-    </div>
-  </ion-scroll>
+    </button>
+    <ion-item>
+      <ion-icon name="checkbox-outline" color="light" item-left></ion-icon>
+      <ion-input type="text" placeholder="Add step" item-inset-input inset></ion-input>
+    </ion-item>
+  </ion-list>
 </ion-content>
