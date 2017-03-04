@@ -5,11 +5,30 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Vision</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only class="options-button">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+
+  <ion-toolbar color="vision">
+    <ion-segment [(ngModel)]="scope" color="light">
+      <ion-segment-button [value]="scope" *ngFor="let scope of scopes">
+        {{scope}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <img src="https://s-media-cache-ak0.pinimg.com/originals/6e/9c/c4/6e9cc498cb359b3c7a16fb220033f359.jpg"/>
+  <ion-item padding text-wrap>
+  <h2>My legendary day!</h2>
+  <p>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+  </p>
+  </ion-item>
 </ion-content>

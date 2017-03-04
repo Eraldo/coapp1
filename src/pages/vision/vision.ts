@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {OutcomeScope, OUTCOME_SCOPES} from "api/models";
 
 /*
   Generated class for the Vision page.
@@ -12,8 +13,14 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'vision.html'
 })
 export class VisionPage {
+  scope: OutcomeScope;
+  scopes: OutcomeScope[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.scope = OutcomeScope.DAY;
+    this.scopes = OUTCOME_SCOPES;
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad VisionPage');
