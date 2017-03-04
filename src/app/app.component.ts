@@ -25,25 +25,25 @@ export class App {
 
   rootPage = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon?: string, color?: string}>;
 
   constructor(public platform: Platform) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Manager', component: ManagerPage },
-      { title: 'Journal', component: JournalPage },
-      { title: 'Community', component: CommunityPage },
-      { title: 'Journey', component: JourneyPage },
-      { title: 'Academy', component: AcademyPage },
-      { title: 'Vision', component: VisionPage },
-      { title: 'Support', component: SupportPage },
-      { title: 'Settings', component: SettingsPage },
-      { title: 'About', component: AboutPage },
-      { title: 'Contact', component: ContactPage },
-      { title: 'Feedback', component: FeedbackPage },
+      { title: 'Home', component: HomePage, icon: 'home', color: 'home'},
+      { title: 'Manager', component: ManagerPage, icon: 'briefcase', color: 'manager' },
+      { title: 'Journal', component: JournalPage, icon: 'book', color: 'journal' },
+      { title: 'Community', component: CommunityPage, icon: 'people', color: 'community' },
+      { title: 'Journey', component: JourneyPage, icon: 'plane', color: 'journey' },
+      { title: 'Academy', component: AcademyPage, icon: 'school', color: 'academy' },
+      { title: 'Vision', component: VisionPage, icon: 'eye', color: 'vision' },
+      { title: 'Support', component: SupportPage, icon: 'help-circle', color: 'support' },
+      { title: 'Settings', component: SettingsPage, icon: 'settings', color: 'settings' },
+      { title: 'About', component: AboutPage, icon: 'information-circle', color: 'light' },
+      { title: 'Contact', component: ContactPage, icon: 'mail', color: 'light' },
+      { title: 'Feedback', component: FeedbackPage, icon: 'paper-plane', color: 'light' },
       { title: 'Sandbox', component: SandboxPage }
     ];
 
