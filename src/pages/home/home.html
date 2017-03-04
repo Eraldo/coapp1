@@ -7,14 +7,47 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+  <ion-card color="manager">
+    <ion-card-header>
+      Next step: Setting Day Focus
+    </ion-card-header>
+    <ion-card-content>
+      Knowing what I want is half the path. :)
+    </ion-card-content>
+    <ion-item>
+      <button ion-button icon-left item-left clear>
+        <ion-icon name="walk"></ion-icon>
+        Start
+      </button>
+      <button ion-button icon-right item-right clear>
+        Skip
+        <ion-icon name="skip-forward"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-card>
+  <ion-card color="community">
+    <img src="https://lh4.googleusercontent.com/wZsOfEJACB5abtrQqJP0ILr9Y-N8N6vjVCyK58f0csdDtQ8MZUbuoxhbVeHU0FfG6NNCzi98JdxhtmyvpWSqFhXEcyAqeuXzfvfKcZkw9PgCkctkFAtT6fh5PPMxA1L6toowb1c3"/>
+    <ion-card-content>
+      <ion-card-title>
+        Purposeful Power Day
+      </ion-card-title>
+      <p>
+        Gaming things done like a legend!<br>
+        Saturday, March 4, 2017<br>
+        10:00 AM to 7:00 PM<br>
+      </p>
+    </ion-card-content>
+    <ion-item>
+      <button ion-button icon-left item-left clear>
+        <ion-icon name="person-add"></ion-icon>
+        Join
+      </button>
+      <button ion-button icon-right item-right clear>
+        Details
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+    </ion-item>
+
+  </ion-card>
 </ion-content>
