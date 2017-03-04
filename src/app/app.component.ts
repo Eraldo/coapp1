@@ -3,7 +3,7 @@ import {Platform, Nav} from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import {ManagerPage} from '../pages/manager/manager';
-import {SandboxPage} from "../pages/sandbox/sandbox";
+import {LabPage} from "../pages/lab/lab";
 import {FeedbackPage} from "../pages/feedback/feedback";
 import {HomePage} from "../pages/home/home";
 import {JournalPage} from "../pages/journal/journal";
@@ -32,19 +32,19 @@ export class App {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage, icon: 'home', color: 'home'},
-      { title: 'Manager', component: ManagerPage, icon: 'briefcase', color: 'manager' },
-      { title: 'Journal', component: JournalPage, icon: 'book', color: 'journal' },
-      { title: 'Community', component: CommunityPage, icon: 'people', color: 'community' },
-      { title: 'Journey', component: JourneyPage, icon: 'plane', color: 'journey' },
-      { title: 'Academy', component: AcademyPage, icon: 'school', color: 'academy' },
-      { title: 'Vision', component: VisionPage, icon: 'eye', color: 'vision' },
-      { title: 'Support', component: SupportPage, icon: 'help-circle', color: 'support' },
-      { title: 'Settings', component: SettingsPage, icon: 'settings', color: 'settings' },
-      { title: 'About', component: AboutPage, icon: 'information-circle', color: 'light' },
-      { title: 'Contact', component: ContactPage, icon: 'mail', color: 'light' },
-      { title: 'Feedback', component: FeedbackPage, icon: 'paper-plane', color: 'light' },
-      { title: 'Sandbox', component: SandboxPage }
+      { title: 'Home', component: HomePage, icon: 'home', color: 'area-1'},
+      { title: 'Manager', component: ManagerPage, icon: 'briefcase', color: 'area-3' },
+      { title: 'Journal', component: JournalPage, icon: 'book', color: 'area-5' },
+      { title: 'Community', component: CommunityPage, icon: 'people', color: 'area-4' },
+      { title: 'Journey', component: JourneyPage, icon: 'plane', color: 'area-2' },
+      { title: 'Academy', component: AcademyPage, icon: 'school', color: 'area-6' },
+      { title: 'Vision', component: VisionPage, icon: 'eye', color: 'area-7' },
+      { title: 'Support', component: SupportPage, icon: 'help-circle', color: 'mid' },
+      { title: 'Settings', component: SettingsPage, icon: 'settings', color: 'mid' },
+      { title: 'About', component: AboutPage, icon: 'information-circle', color: 'mid' },
+      { title: 'Contact', component: ContactPage, icon: 'mail', color: 'mid' },
+      { title: 'Feedback', component: FeedbackPage, icon: 'paper-plane', color: 'mid' },
+      { title: 'Lab', component: LabPage, icon: 'flask', color: 'light' },
     ];
 
   }

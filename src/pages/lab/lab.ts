@@ -2,21 +2,21 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 /*
-  Generated class for the Sandbox page.
+  Generated class for the Lab page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-sandbox',
-  templateUrl: 'sandbox.html'
+  selector: 'page-lab',
+  templateUrl: 'lab.html'
 })
-export class SandboxPage {
+export class LabPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SandboxPage');
+    console.log('ionViewDidLoad LabPage');
   }
 
 }

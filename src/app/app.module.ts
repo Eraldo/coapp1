@@ -4,7 +4,7 @@ import { App } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { SandboxPage } from '../pages/sandbox/sandbox';
+import { LabPage } from '../pages/lab/lab';
 import {FeedbackPage} from "../pages/feedback/feedback";
 import { TabsPage } from '../pages/tabs/tabs';
 import {JourneyPage} from "../pages/journey/journey";
@@ -33,7 +33,7 @@ import {MomentModule} from "angular2-moment";
     SettingsPage,
     ContactPage,
     FeedbackPage,
-    SandboxPage,
+    LabPage,
     TabsPage
   ],
   imports: [
@@ -56,7 +56,7 @@ import {MomentModule} from "angular2-moment";
     SettingsPage,
     ContactPage,
     FeedbackPage,
-    SandboxPage,
+    LabPage,
     TabsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
