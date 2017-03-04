@@ -12,6 +12,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'journey.html'
 })
 export class JourneyPage {
+  progress: number = 60;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
