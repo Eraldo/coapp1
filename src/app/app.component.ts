@@ -25,27 +25,30 @@ export class App {
 
   rootPage = HomePage;
 
-  pages: Array<{title: string, component: any, icon?: string, color?: string}>;
+  apps: Array<{name: string, component: any, icon?: string, color?: string}>;
+  pages: Array<{name: string, component: any, icon?: string, color?: string}>;
+  feedbackPage: {name: string, component: any, icon?: string, color?: string};
 
   constructor(public platform: Platform) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage, icon: 'home', color: 'area-1'},
-      { title: 'Manager', component: ManagerPage, icon: 'briefcase', color: 'area-3' },
-      { title: 'Journal', component: JournalPage, icon: 'book', color: 'area-5' },
-      { title: 'Community', component: CommunityPage, icon: 'people', color: 'area-4' },
-      { title: 'Journey', component: JourneyPage, icon: 'plane', color: 'area-2' },
-      { title: 'Academy', component: AcademyPage, icon: 'school', color: 'area-6' },
-      { title: 'Vision', component: VisionPage, icon: 'eye', color: 'area-7' },
-      { title: 'Support', component: SupportPage, icon: 'help-circle', color: 'mid' },
-      { title: 'Settings', component: SettingsPage, icon: 'settings', color: 'mid' },
-      { title: 'About', component: AboutPage, icon: 'information-circle', color: 'mid' },
-      { title: 'Contact', component: ContactPage, icon: 'mail', color: 'mid' },
-      { title: 'Feedback', component: FeedbackPage, icon: 'paper-plane', color: 'mid' },
-      { title: 'Lab', component: LabPage, icon: 'flask', color: 'light' },
+    this.apps = [
+      { name: 'Home', component: HomePage, icon: 'home', color: 'area-1'},
+      { name: 'Manager', component: ManagerPage, icon: 'briefcase', color: 'area-3' },
+      { name: 'Journal', component: JournalPage, icon: 'book', color: 'area-5' },
+      { name: 'Community', component: CommunityPage, icon: 'people', color: 'area-4' },
+      { name: 'Journey', component: JourneyPage, icon: 'plane', color: 'area-2' },
+      { name: 'Academy', component: AcademyPage, icon: 'school', color: 'area-6' },
+      { name: 'Vision', component: VisionPage, icon: 'eye', color: 'area-7' },
     ];
+    this.pages = [
+      { name: 'Support', component: SupportPage, icon: 'help-circle', color: 'mid' },
+      { name: 'Settings', component: SettingsPage, icon: 'settings', color: 'mid' },
+      { name: 'About', component: AboutPage, icon: 'information-circle', color: 'mid' },
+      { name: 'Contact', component: ContactPage, icon: 'mail', color: 'mid' },
+      { name: 'Lab', component: LabPage, icon: 'flask', color: 'light' },
+    ];
+    this.feedbackPage = { name: 'Feedback', component: FeedbackPage, icon: 'paper-plane', color: 'mid' };
 
   }
 

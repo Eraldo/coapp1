@@ -8,12 +8,26 @@
 
   <ion-content>
     <ion-list>
+      <button menuClose ion-item *ngFor="let app of apps" (click)="openPage(app)">
+        <ion-icon *ngIf="app.icon" name="{{app.icon}}" item-left color="{{app.color}}"></ion-icon>
+        {{app.name}}
+      </button>
+      <ion-item-divider color="light"></ion-item-divider>
       <button menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)">
         <ion-icon *ngIf="page.icon" name="{{page.icon}}" item-left color="{{page.color}}"></ion-icon>
-        {{page.title}}
+        {{page.name}}
       </button>
+
     </ion-list>
   </ion-content>
+    <ion-footer>
+      <!--<ion-toolbar>-->
+        <button menuClose ion-item (click)="openPage(feedbackPage)" color="{{feedbackPage.color}}">
+          <ion-icon *ngIf="feedbackPage.icon" name="{{feedbackPage.icon}}" item-left></ion-icon>
+          {{feedbackPage.name}}
+        </button>
+      <!--</ion-toolbar>-->
+    </ion-footer>
 
 </ion-menu>
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
