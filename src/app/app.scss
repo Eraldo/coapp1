@@ -1,6 +1,5 @@
 // http://ionicframework.com/docs/v2/theming/
 
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -20,4 +19,12 @@ ion-icon.ion-md-infinite {
   -moz-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   -ms-transform: scaleX(-1);
+}
+body {
+  background-color: #00695C;
+}
+ion-app {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
 }
