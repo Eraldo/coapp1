@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="login()">Login</button>
+      <button ion-button (click)="join()">Join</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-input formControlName="email" (keypress)="onInputKeypress($event)" type="email" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input formControlName="password" (keypress)="onInputKeypress($event)" type="password" placeholder="Password"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>

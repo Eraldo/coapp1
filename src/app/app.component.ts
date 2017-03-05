@@ -15,6 +15,7 @@ import {SupportPage} from "../pages/support/support";
 import {AboutPage} from "../pages/about/about";
 import {SettingsPage} from "../pages/settings/settings";
 import {ContactPage} from "../pages/contact/contact";
+import {LoginPage} from "../pages/login/login";
 
 
 @Component({
@@ -23,7 +24,7 @@ import {ContactPage} from "../pages/contact/contact";
 export class App {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = HomePage;
+  rootPage = LoginPage;
   activePage: any;
 
   apps: Array<{name: string, component: any, icon?: string, color?: string}>;

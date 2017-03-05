@@ -16,10 +16,13 @@ import {SupportPage} from "../pages/support/support";
 import {SettingsPage} from "../pages/settings/settings";
 import {MANAGER_DECLARATIONS} from "../pages/manager";
 import {MomentModule} from "angular2-moment";
+import {AccountService} from "../services/account";
+import {LoginPage} from "../pages/login/login";
 
 @NgModule({
   declarations: [
     App,
+    LoginPage,
     HomePage,
     // ManagerPage,
     ...MANAGER_DECLARATIONS,
@@ -43,6 +46,7 @@ import {MomentModule} from "angular2-moment";
   bootstrap: [IonicApp],
   entryComponents: [
     App,
+    LoginPage,
     HomePage,
     ...MANAGER_DECLARATIONS,
     // ManagerPage,
@@ -59,6 +63,9 @@ import {MomentModule} from "angular2-moment";
     LabPage,
     TabsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AccountService,
+    ]
 })
 export class AppModule {}
