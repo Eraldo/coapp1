@@ -14,7 +14,7 @@
       </button>
     </ion-list>
     <ion-list>
-      <ion-item-divider color="light"></ion-item-divider>
+      <hr>
       <button menuClose ion-item *ngFor="let page of pages" (click)="openPage(page)" [class.main-menu-item]="true" [class.active]="checkActive(page)">
         <ion-icon *ngIf="page.icon" name="{{page.icon}}" item-left color="{{page.color}}"></ion-icon>
         {{page.name}}
