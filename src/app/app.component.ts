@@ -32,7 +32,6 @@ export class App {
 
   constructor(public platform: Platform) {
     this.initializeApp();
-    this.activePage = this.rootPage;
 
     this.apps = [
       { name: 'Home', component: HomePage, icon: 'home', color: 'area-1'},
@@ -51,7 +50,7 @@ export class App {
       { name: 'Lab', component: LabPage, icon: 'flask', color: 'light' },
     ];
     this.feedbackPage = { name: 'Feedback', component: FeedbackPage, icon: 'paper-plane', color: 'mid' };
-
+    this.activePage = this.apps[0]
   }
 
   initializeApp() {
@@ -70,6 +69,10 @@ export class App {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
     this.activePage = page;
+  }
+
+  pushPage(page) {
+    this.nav.push(page.component);
   }
 
   checkActive(page) {
