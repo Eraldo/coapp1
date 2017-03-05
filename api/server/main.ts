@@ -5,6 +5,13 @@ import * as moment from 'moment';
 import {OutcomeStatus, OutcomeScope} from "../models";
 
 Meteor.startup(() => {
+  loadfixtures();
+  if (Meteor.settings) {
+    // Object.assign(Accounts._options, Meteor.settings['accounts-phone']);
+  }
+});
+
+function loadfixtures() {
   if (Outcomes.find({}).cursor.count() === 0) {
     let outcomeId;
 
@@ -42,4 +49,4 @@ Meteor.startup(() => {
     });
 
   }
-});
+}
