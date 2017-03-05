@@ -14,17 +14,25 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+// Flip infinity icon horizontally.
 ion-icon.ion-md-infinite {
   transform: scaleX(-1);
   -moz-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
   -ms-transform: scaleX(-1);
 }
+
+// Set background and max width for desktop.
 body {
-  background-color: #00695C;
+  background-color: map-get($colors, background);
 }
 ion-app {
   position: relative;
   max-width: 1200px;
   margin: auto;
+}
+
+// Highlight active page in menu.
+.main-menu-item.active {
+  background-color: map-get($colors, light);
 }
