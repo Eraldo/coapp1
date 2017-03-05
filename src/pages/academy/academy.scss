@@ -1,3 +1,14 @@
 page-academy {
-
+  ion-avatar img {
+    border-radius: 50%;
+  }
+  .bonus {
+    background-color: lightblue;
+    .bonus-label {
+      color: #2196F3;
+    }
+  }
+  .progress-bar div {
+    background-color: #FFD600;
+  }
 }

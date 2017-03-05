@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import {Outcome, Step} from "api/models";
+import {Outcome} from "api/models";
 import {Steps} from "api/collections";
 
 @Component({
