@@ -3,13 +3,29 @@ import {Outcomes} from "./collections/outcomes";
 import {Steps} from "./collections/steps";
 import * as moment from 'moment';
 import {OutcomeStatus, OutcomeScope} from "../models";
+import { ServiceConfiguration } from 'meteor/service-configuration';
 
 Meteor.startup(() => {
   loadfixtures();
   if (Meteor.settings) {
     // Object.assign(Accounts._options, Meteor.settings['accounts-phone']);
+    configGoogle()
   }
 });
+
+function configGoogle() {
+  ServiceConfiguration.configurations.upsert(
+    { service: "google" },
+    {
+      $set: {
+        // clientId: Meteor.settings.google.clientId,
+        clientId: "1292962797",
+        secret: "75a730b58f5691de5522789070c319bc"
+        // loginStyle: "popup",
+      }
+    }
+  );
+}
 
 function loadfixtures() {
   if (Outcomes.find({}).cursor.count() === 0) {

@@ -51,6 +51,18 @@ export class AccountService {
     });
   }
 
+  // loginGoogle(user: string, password: string): Promise<void> {
+  //   return new Promise<void>((resolve, reject) => {
+  //     Meteor.loginWithGoogle(user, password, (e: Error) => {
+  //       if (e) {
+  //         return reject(e);
+  //       }
+  //
+  //       resolve();
+  //     });
+  //   });
+  // }
+
   logout(): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       Meteor.logout((e: Error) => {
