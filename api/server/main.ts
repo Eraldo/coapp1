@@ -6,25 +6,36 @@ import {OutcomeStatus, OutcomeScope} from "../models";
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
 Meteor.startup(() => {
+  // process.env.ROOT_URL = 'http://mydomain.com:3000';
   loadfixtures();
   if (Meteor.settings) {
-    // Object.assign(Accounts._options, Meteor.settings['accounts-phone']);
+    configUrl();
     configGoogle()
   }
 });
 
+function configUrl() {
+  var theURL = Meteor.settings['url'];
+  Meteor.absoluteUrl["defaultOptions"].rootUrl = theURL;
+  // process.env.ROOT_URL = theURL;
+  // process.env.MOBILE_ROOT_URL = theURL;
+  // process.env.MOBILE_DDP_URL = theURL;
+  // process.env.PORT = Meteor.settings.port;
+  // process.env.DDP_DEFAULT_CONNECTION_URL = theURL;
+  // console.log(process.env);
+}
+
 function configGoogle() {
-  ServiceConfiguration.configurations.upsert(
-    { service: "google" },
-    {
-      $set: {
-        // clientId: Meteor.settings.google.clientId,
-        clientId: "1292962797",
-        secret: "75a730b58f5691de5522789070c319bc"
-        // loginStyle: "popup",
-      }
+  // Load and set Google app configurations
+  var googleConfig = Meteor.settings['google'];
+  ServiceConfiguration.configurations.upsert({
+    service: "google"
+  }, {
+    $set: {
+      clientId: googleConfig.clientId,
+      secret: googleConfig.secret
     }
-  );
+  });
 }
 
 function loadfixtures() {

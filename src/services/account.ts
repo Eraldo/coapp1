@@ -51,17 +51,19 @@ export class AccountService {
     });
   }
 
-  // loginGoogle(user: string, password: string): Promise<void> {
-  //   return new Promise<void>((resolve, reject) => {
-  //     Meteor.loginWithGoogle(user, password, (e: Error) => {
-  //       if (e) {
-  //         return reject(e);
-  //       }
-  //
-  //       resolve();
-  //     });
-  //   });
-  // }
+  loginGoogle(): Promise<void> {
+    // TODO: fix issue with callback! meteor gets the callback and does not know what to do with it.
+    // console.log(Meteor.absoluteUrl());
+    return new Promise<void>((resolve, reject) => {
+      Meteor.loginWithGoogle({loginStyle: 'redirect', redirectUrl: '/'}, (e: Error) => {
+        if (e) {
+          return reject(e);
+        }
+
+        resolve();
+      });
+    });
+  }
 
   logout(): Promise<void> {
     return new Promise<void>((resolve, reject) => {

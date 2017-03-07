@@ -1,5 +1,5 @@
 import {Component, OnInit, NgZone} from '@angular/core';
-import {NavController, NavParams, AlertController, Alert} from 'ionic-angular';
+import {NavController, NavParams, AlertController} from 'ionic-angular';
 import {AccountService} from "../../services/account";
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {HomePage} from "../home/home";
@@ -46,6 +46,16 @@ export class LoginPage implements OnInit {
           this.handleError(e);
         });
     }
+  }
+
+  loginGoogle(): void {
+    this.accoutService.loginGoogle()
+      .then(() => {
+        this.navCtrl.setRoot(HomePage);
+      })
+      .catch((e) => {
+        this.handleError(e);
+      });
   }
 
   join(): void {
