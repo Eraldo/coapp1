@@ -8,7 +8,7 @@ import {AppModule} from './app.module';
 Meteor.startup(() => {
   const subscription = MeteorObservable.autorun().subscribe(() => {
 
-    Meteor.absoluteUrl["defaultOptions"].rootUrl = "http://localhost:3000";
+    Meteor.absoluteUrl["defaultOptions"].rootUrl = "http://localhost:8100";
 
     if (Meteor.loggingIn()) {
       return;
