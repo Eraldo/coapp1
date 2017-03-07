@@ -24,7 +24,7 @@ import {LoginPage} from "../pages/login/login";
 export class App {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = LoginPage;
+  rootPage: any;
   activePage: any;
 
   apps: Array<{name: string, component: any, icon?: string, color?: string}>;
@@ -32,6 +32,8 @@ export class App {
   feedbackPage: {name: string, component: any, icon?: string, color?: string};
 
   constructor(public platform: Platform) {
+    this.rootPage = Meteor.user() ? HomePage : LoginPage;
+
     this.initializeApp();
 
     this.apps = [
