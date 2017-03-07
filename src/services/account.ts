@@ -55,7 +55,7 @@ export class AccountService {
     // TODO: fix issue with callback! meteor gets the callback and does not know what to do with it.
     // console.log(Meteor.absoluteUrl());
     return new Promise<void>((resolve, reject) => {
-      Meteor.loginWithGoogle({loginStyle: 'redirect', redirectUrl: '/'}, (e: Error) => {
+      Meteor.loginWithGoogle({loginStyle: 'popup', 'redirectUrl': 'http://localhost:3000/_oauth/google?close'}, (e: Error) => {
         if (e) {
           return reject(e);
         }
