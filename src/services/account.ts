@@ -15,25 +15,37 @@ export class AccountService {
 
   }
 
-  verify(email: string): Promise<void> {
+  verify(token: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      // Accounts.requestPhoneVerification(phoneNumber, (e: Error) => {
-      //   if (e) {
-      //     return reject(e);
-      //   }
-      //
-      //   resolve();
-      // });
+      Accounts.verifyEmail(token, (e: Error) => {
+        if (e) {
+          return reject(e);
+        }
+        resolve();
+      });
+    });
+  }
+
+  sendVerification(): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      let userId = Meteor.userId();
+      // TODO: Call server method!
+      // Accounts.sendVerificationEmail(userId);
+      resolve();
     });
   }
 
   register(user: string, password: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
+      // TODO: Put these calls into server side!
       Accounts.createUser({email: user, password: password}, (e: Error) => {
         if (e) {
           return reject(e);
         }
-
+        let userId = Meteor.userId();
+        if ( userId ) {
+          return Accounts.sendVerificationEmail( userId );
+        }
         resolve();
       });
     });

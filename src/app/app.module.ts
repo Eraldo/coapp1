@@ -18,11 +18,13 @@ import {MANAGER_DECLARATIONS} from "../pages/manager";
 import {MomentModule} from "angular2-moment";
 import {AccountService} from "../services/account";
 import {LoginPage} from "../pages/login/login";
+import {VerificationPage} from "../pages/verification/verification";
 
 @NgModule({
   declarations: [
     App,
     LoginPage,
+    VerificationPage,
     HomePage,
     // ManagerPage,
     ...MANAGER_DECLARATIONS,
@@ -47,6 +49,7 @@ import {LoginPage} from "../pages/login/login";
   entryComponents: [
     App,
     LoginPage,
+    VerificationPage,
     HomePage,
     ...MANAGER_DECLARATIONS,
     // ManagerPage,

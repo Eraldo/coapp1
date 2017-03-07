@@ -18,7 +18,7 @@
     <ion-item>
       <ion-input formControlName="password" (keypress)="onInputKeypress($event)" type="password" placeholder="Password"></ion-input>
     </ion-item>
-    <button ion-button block icon-left color="success">
+    <button ion-button block icon-left color="success" [disabled]="!loginForm.valid">
       <ion-icon name="log-in"></ion-icon>
       Sign in
     </button>

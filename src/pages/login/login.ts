@@ -3,6 +3,7 @@ import {NavController, NavParams, AlertController} from 'ionic-angular';
 import {AccountService} from "../../services/account";
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {HomePage} from "../home/home";
+import {VerificationPage} from "../verification/verification";
 
 /*
  Generated class for the Login page.
@@ -40,7 +41,10 @@ export class LoginPage implements OnInit {
     if (this.loginForm.valid) {
       this.accoutService.login(this.loginForm.value.email, this.loginForm.value.password)
         .then(() => {
-          this.navCtrl.setRoot(HomePage);
+          if (Meteor.user() && Meteor.user().emails[0].verified) {
+            this.navCtrl.setRoot(HomePage);
+          }
+          this.navCtrl.setRoot(VerificationPage);
         })
         .catch((e) => {
           this.handleError(e);
