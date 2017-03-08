@@ -1,5 +1,5 @@
 import {Template} from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import {ReactiveVar} from 'meteor/reactive-var';
 
 import './main.html';
 
@@ -21,28 +21,57 @@ import './main.html';
 //   },
 // });
 
-Template.api.onCreated(function() {
-  this.text = 'Please refresh your app.';
-  if (Accounts._verifyEmailToken) {
-    Accounts.verifyEmail(Accounts._verifyEmailToken, function (err) {
-      if (err != null) {
-        if (err.message = 'Verify email link expired [403]') {
-          message = 'Sorry this verification link has expired.';
-          console.log(message);
-          alert(message)
-        }
-      } else {
-        message = 'Thank you! Your email address has been confirmed.';
-        data.message = message;
-        console.log(message);
-        alert(message)
-      }
-    });
-  }
-});
+// Template.api.onCreated(function () {
+//   this.message = 'Please refresh your app.';
+//   if (Accounts._verifyEmailToken) {
+//     Accounts.verifyEmail(Accounts._verifyEmailToken, function (err) {
+//       if (err != null) {
+//         if (err.message = 'Verify email link expired [403]') {
+//           message = 'Sorry this verification link has expired.';
+//           console.log(message);
+//           alert(message);
+//           this.message = message
+//         }
+//       } else {
+//         message = 'Thank you! Your email address has been confirmed.';
+//         console.log(message);
+//         alert(message);
+//         this.message = message
+//       }
+//     });
+//   } else {
+//     message = 'Cound not find a token.';
+//     console.log(message);
+//     alert(message);
+//     this.message = message
+//   }
+// });
 
 Template.api.helpers({
   message: function () {
-    return Template.instance().text;
+    // return Template.instance().message;
+    if (Accounts._verifyEmailToken) {
+      Accounts.verifyEmail(Accounts._verifyEmailToken, function (err) {
+        if (err != null) {
+          if (err.message = 'Verify email link expired [403]') {
+            message = 'Sorry this verification link has expired.';
+            console.log(message);
+            alert(message);
+            return message
+          }
+        } else {
+          message = 'Thank you! Your email address has been confirmed.';
+          console.log(message);
+          alert(message);
+          return message
+        }
+      });
+    } else {
+      message = 'Cound not find a token.';
+      console.log(message);
+      alert(message);
+      return message
+    }
+
   }
 });
