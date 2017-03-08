@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {NavController, NavParams, AlertController} from 'ionic-angular';
 import {Profile} from "api/models";
 import {MeteorObservable} from "meteor-rxjs";
-import {HomePage} from "../home/home";
 
 @Component({
   selector: 'page-profile',
@@ -23,7 +22,7 @@ export class ProfilePage implements OnInit {
   updateProfile(): void {
     MeteorObservable.call('updateProfile', this.profile).subscribe({
       next: () => {
-        this.navCtrl.push(HomePage);
+        this.navCtrl.pop();
       },
       error: (e: Error) => {
         this.handleError(e);
