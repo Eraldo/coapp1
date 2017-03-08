@@ -49,7 +49,8 @@ export class AccountService {
         }
         let userId = Meteor.userId();
         if ( userId ) {
-          return Accounts.sendVerificationEmail( userId );
+          // return Accounts.sendVerificationEmail( userId );
+          this.sendVerification();
         }
         resolve();
       });
