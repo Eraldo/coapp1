@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams, AlertController} from 'ionic-angular';
 import {Outcome, OutcomeStatus, OutcomeScope, OUTCOME_SCOPES, OUTCOME_STATUSES} from "api/models";
 import {FormBuilder, FormGroup, Validators, FormArray} from "@angular/forms";
+import {MeteorObservable} from "meteor-rxjs";
 
 @Component({
   selector: 'page-new-outcome',
@@ -12,7 +13,7 @@ export class NewOutcomePage implements OnInit {
   scopes: OutcomeScope[];
   statuses: OutcomeStatus[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private alertCtrl: AlertController) {
     this.scopes = OUTCOME_SCOPES;
     this.statuses = OUTCOME_STATUSES;
   }
@@ -50,6 +51,28 @@ export class NewOutcomePage implements OnInit {
 
   save(outcome: Outcome) {
     console.log(outcome);
+    if (this.outcomeForm.valid) {
+      MeteorObservable.call('addOutcome', outcome).subscribe({
+        next: () => {
+          this.navCtrl.pop();
+        },
+        error: (e: Error) => {
+          this.handleError(e);
+        }
+      });
+    }
+  }
+
+  handleError(e: Error): void {
+    console.error(e);
+
+    const alert = this.alertCtrl.create({
+      buttons: ['OK'],
+      message: e.message,
+      title: 'Oops!'
+    });
+
+    alert.present();
   }
 
   ionViewDidLoad() {

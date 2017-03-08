@@ -1,6 +1,6 @@
 import {Outcomes} from "./collections/outcomes";
 import {Steps} from "./collections/steps";
-import {Profile, OutcomeStatus} from "./models";
+import {Profile, OutcomeStatus, Outcome, OutcomeScope} from "./models";
 
 const nonEmptyString = Match.Where((str) => {
   check(str, String);
@@ -74,17 +74,22 @@ Meteor.methods({
   countSteps(): number {
     return Steps.collection.find().count();
   },
-  addOutcome(name: string) {
+  addOutcome(outcome: Outcome) {
     if (!this.userId) throw new Meteor.Error('unauthorized',
       'User must be logged-in to create a new outcome');
 
-    check(name, nonEmptyString);
+    check(outcome.name, nonEmptyString);
 
     return {
       outcomeId: Outcomes.collection.insert({
         userId: this.userId,
-        name: name,
-        status: OutcomeStatus.OPEN,
+        name: outcome.name,
+        status: outcome.status || OutcomeStatus.OPEN,
+        inbox: outcome.inbox || true,
+        scope: outcome.scope || OutcomeScope.DAY,
+        deadline: outcome.deadline,
+        start: outcome.start,
+        content: outcome.content,
         createdAt: new Date()
       })
     };

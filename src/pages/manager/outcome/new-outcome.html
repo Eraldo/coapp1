@@ -23,6 +23,10 @@
       <ion-input type="text" formControlName="name"></ion-input>
     </ion-item>
     <ion-item>
+      <ion-label>Inbox</ion-label>
+      <ion-toggle formControlName="inbox"></ion-toggle>
+    </ion-item>
+    <ion-item>
       <ion-label floating>Status</ion-label>
       <ion-select formControlName="status">
         <ion-option [value]="status" *ngFor="let status of statuses">{{status}}</ion-option>
