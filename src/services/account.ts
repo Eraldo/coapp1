@@ -37,10 +37,6 @@ export class AccountService {
           return reject(e);
         }
       });
-      // // let userId = Meteor.userId();
-      // // TODO: Call server method!
-      // // Accounts.sendVerificationEmail(userId);
-      // resolve();
     });
   }
 
