@@ -3,7 +3,6 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { App } from './app.component';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { LabPage } from '../pages/lab/lab';
 import {FeedbackPage} from "../pages/feedback/feedback";
 import { TabsPage } from '../pages/tabs/tabs';
@@ -20,6 +19,7 @@ import {AccountService} from "../services/account";
 import {LoginPage} from "../pages/login/login";
 import {VerificationPage} from "../pages/verification/verification";
 import {ProfilePage} from "../pages/profile/profile";
+import {HOME_DECLARATIONS} from "../pages/home";
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import {ProfilePage} from "../pages/profile/profile";
     LoginPage,
     VerificationPage,
     ProfilePage,
-    HomePage,
+    // HomePage,
+    ...HOME_DECLARATIONS,
     // ManagerPage,
     ...MANAGER_DECLARATIONS,
     JournalPage,
@@ -53,9 +54,10 @@ import {ProfilePage} from "../pages/profile/profile";
     LoginPage,
     VerificationPage,
     ProfilePage,
-    HomePage,
-    ...MANAGER_DECLARATIONS,
+    // HomePage,
+    ...HOME_DECLARATIONS,
     // ManagerPage,
+    ...MANAGER_DECLARATIONS,
     JournalPage,
     CommunityPage,
     JourneyPage,

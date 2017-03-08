@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
+import {NavController, PopoverController} from 'ionic-angular';
 import {ProfilePage} from "../profile/profile";
+import {HomeOptionsComponent} from "./home-options";
 
 @Component({
   selector: 'page-home',
@@ -9,11 +10,19 @@ import {ProfilePage} from "../profile/profile";
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private popoverCtrl: PopoverController) {
 
   }
 
   profile() {
     this.navCtrl.push(ProfilePage)
+  }
+
+  showOptions(event): void {
+    const popover = this.popoverCtrl.create(HomeOptionsComponent);
+
+    popover.present({
+      ev: event
+    });
   }
 }
