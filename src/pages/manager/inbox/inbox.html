@@ -8,6 +8,15 @@
       Inbox
     </ion-title>
     <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="trash"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="medkit"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
       <button ion-button icon-only class="options-button">
         <ion-icon name="more"></ion-icon>
       </button>
@@ -49,20 +58,4 @@
     </ion-item>
     <!--<button ion-button type="submit" [disabled]="!outcome.valid">Submit</button>-->
   </form>
-
-  <ion-fab bottom left>
-    <button ion-fab color="danger">
-      <ion-icon name="trash"></ion-icon>
-    </button>
-  </ion-fab>
-  <ion-fab bottom center>
-    <button ion-fab>
-      <ion-icon name="medkit"></ion-icon>
-    </button>
-  </ion-fab>
-  <ion-fab bottom right>
-    <button ion-fab color="success">
-      <ion-icon name="checkmark"></ion-icon>
-    </button>
-  </ion-fab>
 </ion-content>
