@@ -8,6 +8,12 @@ const nonEmptyString = Match.Where((str) => {
 });
 
 Meteor.methods({
+  sendVerification(): void {
+    let userId = Meteor.userId();
+    if (!userId) throw new Meteor.Error('unauthorized',
+      'Cannot send verification to anonymous user.');
+    Accounts.sendVerificationEmail(userId);
+  },
   updateProfile(profile: Profile): void {
     if (!this.userId) throw new Meteor.Error('unauthorized',
       'User must be logged-in to update the profile.');

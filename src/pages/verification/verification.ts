@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController, NavParams, AlertController} from 'ionic-angular';
+import {NavController, NavParams, AlertController, ToastController} from 'ionic-angular';
 import {AccountService} from "../../services/account";
 import {FormGroup, Validators, FormBuilder} from "@angular/forms";
 import {ProfilePage} from "../profile/profile";
@@ -17,7 +17,7 @@ import {ProfilePage} from "../profile/profile";
 export class VerificationPage implements OnInit {
   verificationForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private alertCtrl: AlertController, private accountService: AccountService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private alertCtrl: AlertController, private accountService: AccountService, public toastCtrl: ToastController) {
   }
 
   ngOnInit() {
@@ -48,6 +48,13 @@ export class VerificationPage implements OnInit {
 
   resend(): void {
     this.accountService.sendVerification()
+      .then(() => {
+        let toast = this.toastCtrl.create({
+          message: 'Verification email has been sent.',
+          duration: 3000
+        });
+        toast.present();
+      })
       .catch((e) => {
         this.handleError(e);
       });

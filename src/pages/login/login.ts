@@ -43,8 +43,9 @@ export class LoginPage implements OnInit {
         .then(() => {
           if (Meteor.user() && Meteor.user().emails[0].verified) {
             this.navCtrl.setRoot(HomePage);
+          } else {
+            this.navCtrl.setRoot(VerificationPage);
           }
-          this.navCtrl.setRoot(VerificationPage);
         })
         .catch((e) => {
           this.handleError(e);
