@@ -8,6 +8,28 @@ const nonEmptyString = Match.Where((str) => {
 });
 
 Meteor.methods({
+  loginGoogle(): void {
+    // console.log('Meteor with google: ');
+    // console.log(Meteor.loginWithGoogle);
+    // Meteor.loginWithGoogle();
+    // Meteor.loginWithGoogle({loginStyle: 'popup'}, (e: Error) => {
+    //   if (e) {
+    //     throw new Meteor.Error(e.name, e.message);
+    //   }
+    //   // resolve();
+    // });
+  },
+  // loginGoogle(): Promise<void> {
+  //   return new Promise<void>((resolve, reject) => {
+  //     // Meteor.loginWithGoogle({loginStyle: 'popup', 'redirectUrl': 'http://localhost:3000/_oauth/google?close'}, (e: Error) => {
+  //     Meteor.loginWithGoogle({loginStyle: 'popup'}, (e: Error) => {
+  //       if (e) {
+  //         return reject(e);
+  //       }
+  //       resolve();
+  //     });
+  //   });
+  // },
   sendVerification(): void {
     let userId = Meteor.userId();
     if (!userId) throw new Meteor.Error('unauthorized',

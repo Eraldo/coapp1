@@ -81,6 +81,16 @@ export class AccountService {
         resolve();
       });
     });
+    // return new Promise<void>((resolve, reject) => {
+    //   MeteorObservable.call('loginGoogle').subscribe({
+    //     next: () => {
+    //       resolve();
+    //     },
+    //     error: (e: Error) => {
+    //       return reject(e);
+    //     }
+    //   });
+    // });
   }
 
   logout(): Promise<void> {
