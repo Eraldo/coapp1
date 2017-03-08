@@ -1,0 +1,13 @@
+<div [formGroup]="stepForm">
+  <ion-item>
+    <ion-icon name="checkbox-outline" color="light" item-left></ion-icon>
+    <ion-input formControlName="name" type="text" placeholder="New step" item-inset-input inset></ion-input>
+    <button ion-button icon-only item-right clear (click)="remove()">
+      <ion-icon name="trash" color="mid"></ion-icon>
+    </button>
+    <!--display error message if name is not valid-->
+  </ion-item>
+  <ion-note item-right padding-horizontal color="danger" [hidden]="stepForm.controls.name.valid">
+    Name is required
+  </ion-note>
+</div>

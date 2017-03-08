@@ -1,10 +1,13 @@
+export interface User extends Meteor.User {
+  profile?: Profile;
+}
+
 export const DEFAULT_PICTURE_URL = '/assets/default-profile-picture.svg';
 
 export interface Profile {
   name?: string;
   picture?: string;
 }
-
 
 export enum OutcomeStatus {
   OPEN = <any>'open',
@@ -30,6 +33,7 @@ export interface Outcome {
   _id?: string;
   userId?: string;
   name?: string;
+  inbox?: boolean;
   status?: OutcomeStatus;
   scope?: OutcomeScope;
   deadline?: Date;
