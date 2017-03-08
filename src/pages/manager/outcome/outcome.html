@@ -1,20 +1,70 @@
 <ion-header>
   <ion-navbar color="manager">
     <ion-title>Outcome</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="trash"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-title>
-    {{outcome.name}}
-  </ion-title>
+<ion-content>
+  <ion-list no-lines>
+    <ion-item-sliding>
+      <button ion-item class="outcome" (click)="showOutcome(outcome)">
+        <ion-icon name="checkmark-circle-outline" color="light" item-left></ion-icon>
+        {{outcome.name}}
+        <ion-icon name="star-outline" item-right color="light"></ion-icon>
+      </button>
+      <ion-item-options class="outcome-options">
+        <button ion-button color="danger" class="option option-delete" (click)="delete(outcome)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-list margin-left>
+      <ion-chip>
+        <ion-icon name="filing"></ion-icon>
+        <ion-label>✓</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <ion-icon name="folder"></ion-icon>
+        <ion-label>Day</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <ion-icon name="time"></ion-icon>
+        <ion-label>Jan 25</ion-label>
+      </ion-chip>
+      <ion-chip>
+        <ion-icon name="alarm"></ion-icon>
+        <ion-label>Jan 31</ion-label>
+      </ion-chip>
+    </ion-list>
+  </ion-list>
+  <p padding-horizontal>
+    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
+    type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of
+    Lorem Ipsum.
+  </p>
+  <ion-item-divider>
+    <ion-icon name="checkbox-outline"></ion-icon>
+    Steps 2/3
+  </ion-item-divider>
   <ion-list margin-left>
     <button ion-item *ngFor="let step of steps | async">
       <ion-icon name="checkbox" color="community" item-left></ion-icon>
       {{step.name}}
     </button>
     <ion-item>
-      <ion-icon name="checkbox-outline" color="light" item-left></ion-icon>
+      <ion-icon name="square-outline" color="light" item-left></ion-icon>
       <ion-input type="text" placeholder="Add step" item-inset-input inset></ion-input>
     </ion-item>
   </ion-list>
