@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import {Outcomes} from "./collections/outcomes";
 import {Steps} from "./collections/steps";
 import * as moment from 'moment';
-import {OutcomeStatus, OutcomeScope} from "../models";
+import {OutcomeStatus, OutcomeScope} from "./models";
 import { ServiceConfiguration } from 'meteor/service-configuration';
 
 Meteor.startup(() => {

@@ -1,6 +1,6 @@
 import {Outcomes} from "./collections/outcomes";
 import {Steps} from "./collections/steps";
-import {Profile} from "./models";
+import {Profile, OutcomeStatus} from "./models";
 
 const nonEmptyString = Match.Where((str) => {
   check(str, String);
@@ -49,6 +49,9 @@ Meteor.methods({
     });
   },
   addStep(outcomeId: string, name: string) {
+    if (!this.userId) throw new Meteor.Error('unauthorized',
+      'User must be logged-in to create a new step');
+
     check(outcomeId, nonEmptyString);
     check(name, nonEmptyString);
 
@@ -56,7 +59,7 @@ Meteor.methods({
 
     if (!outcomeExists) {
       throw new Meteor.Error('outcome-not-exists',
-        'Chat doesn\'t exist');
+        'Outcome doesn\'t exist');
     }
 
     return {
@@ -70,6 +73,20 @@ Meteor.methods({
   },
   countSteps(): number {
     return Steps.collection.find().count();
-  }
+  },
+  addOutcome(name: string) {
+    if (!this.userId) throw new Meteor.Error('unauthorized',
+      'User must be logged-in to create a new outcome');
 
+    check(name, nonEmptyString);
+
+    return {
+      outcomeId: Outcomes.collection.insert({
+        userId: this.userId,
+        name: name,
+        status: OutcomeStatus.OPEN,
+        createdAt: new Date()
+      })
+    };
+  },
 });

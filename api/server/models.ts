@@ -28,6 +28,7 @@ export enum OutcomeType {
 
 export interface Outcome {
   _id?: string;
+  userId?: string;
   name?: string;
   status?: OutcomeStatus;
   scope?: OutcomeScope;
