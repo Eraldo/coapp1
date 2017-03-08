@@ -19,12 +19,14 @@ import {MomentModule} from "angular2-moment";
 import {AccountService} from "../services/account";
 import {LoginPage} from "../pages/login/login";
 import {VerificationPage} from "../pages/verification/verification";
+import {ProfilePage} from "../pages/profile/profile";
 
 @NgModule({
   declarations: [
     App,
     LoginPage,
     VerificationPage,
+    ProfilePage,
     HomePage,
     // ManagerPage,
     ...MANAGER_DECLARATIONS,
@@ -50,6 +52,7 @@ import {VerificationPage} from "../pages/verification/verification";
     App,
     LoginPage,
     VerificationPage,
+    ProfilePage,
     HomePage,
     ...MANAGER_DECLARATIONS,
     // ManagerPage,

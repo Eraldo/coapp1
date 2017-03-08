@@ -28,7 +28,7 @@ export class AccountService {
 
   sendVerification(): Promise<void> {
     return new Promise<void>((resolve, reject) => {
-      let userId = Meteor.userId();
+      // let userId = Meteor.userId();
       // TODO: Call server method!
       // Accounts.sendVerificationEmail(userId);
       resolve();

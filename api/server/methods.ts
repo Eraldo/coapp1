@@ -1,5 +1,6 @@
 import {Outcomes} from "./collections/outcomes";
 import {Steps} from "./collections/steps";
+import {Profile} from "./models";
 
 const nonEmptyString = Match.Where((str) => {
   check(str, String);
@@ -7,6 +8,18 @@ const nonEmptyString = Match.Where((str) => {
 });
 
 Meteor.methods({
+  updateProfile(profile: Profile): void {
+    if (!this.userId) throw new Meteor.Error('unauthorized',
+      'User must be logged-in to update the profile.');
+
+    check(profile, {
+      name: nonEmptyString
+    });
+
+    Meteor.users.update(this.userId, {
+      $set: {profile}
+    });
+  },
   addStep(outcomeId: string, name: string) {
     check(outcomeId, nonEmptyString);
     check(name, nonEmptyString);

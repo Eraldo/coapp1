@@ -2,13 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {NavController, NavParams, AlertController} from 'ionic-angular';
 import {AccountService} from "../../services/account";
 import {FormGroup, Validators, FormBuilder} from "@angular/forms";
+import {ProfilePage} from "../profile/profile";
 
 /*
-  Generated class for the Verification page.
+ Generated class for the Verification page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+ See http://ionicframework.com/docs/v2/components/#navigation for more info on
+ Ionic pages and navigation.
+ */
 @Component({
   selector: 'page-verification',
   templateUrl: 'verification.html'
@@ -16,7 +17,8 @@ import {FormGroup, Validators, FormBuilder} from "@angular/forms";
 export class VerificationPage implements OnInit {
   verificationForm: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private alertCtrl: AlertController, private accountService: AccountService) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private alertCtrl: AlertController, private accountService: AccountService) {
+  }
 
   ngOnInit() {
     this.verificationForm = this.formBuilder.group({
@@ -33,6 +35,11 @@ export class VerificationPage implements OnInit {
   verify(): void {
     if (this.verificationForm.valid) {
       this.accountService.verify(this.verificationForm.value.token)
+        .then(() => {
+          this.navCtrl.setRoot(ProfilePage, {}, {
+            animate: true
+          });
+        })
         .catch((e) => {
           this.handleError(e);
         });

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {ProfilePage} from "../profile/profile";
 
 /*
   Generated class for the Lab page.
@@ -13,7 +14,9 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class LabPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.navCtrl.push(ProfilePage)
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LabPage');
