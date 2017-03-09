@@ -53,19 +53,7 @@
 <ion-content #filterContent>
   <ion-list class="outcomes">
     <ion-item-group>
-      <ion-item-sliding *ngFor="let outcome of outcomes | async">
-        <button ion-item class="outcome" (click)="showOutcome(outcome)">
-          <ion-icon name="checkmark-circle-outline" color="light" item-left></ion-icon>
-          {{outcome.name}}
-          <ion-icon name="star-outline" item-right color="light"></ion-icon>
-        </button>
-        <ion-item-options class="outcome-options">
-          <button ion-button color="danger" class="option option-delete" (click)="delete(outcome)">
-            <ion-icon name="trash"></ion-icon>
-            Delete
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+      <outcome-item [outcome]="outcome" *ngFor="let outcome of outcomes | async"></outcome-item>
     </ion-item-group>
   </ion-list>
   <ion-fab bottom right>
