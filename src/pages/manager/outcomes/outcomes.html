@@ -12,8 +12,8 @@
       <button ion-button icon-only class="search-button">
         <ion-icon name="search"></ion-icon>
       </button>
-      <button ion-button icon-only class="quickadd-button" (click)="newOutcome()">
-        <ion-icon name="add"></ion-icon>
+      <button ion-button icon-only (click)="showFilters('filter-menu')" class="filter-button">
+        <ion-icon name="funnel"></ion-icon>
       </button>
       <button ion-button icon-only class="options-button">
         <ion-icon name="more"></ion-icon>
@@ -57,8 +57,8 @@
     </ion-item-group>
   </ion-list>
   <ion-fab bottom right>
-    <button ion-fab mini menuToggle="filter-menu">
-      <ion-icon name="funnel"></ion-icon>
+    <button ion-fab (click)="newOutcome()" class="quickadd-button">
+      <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>

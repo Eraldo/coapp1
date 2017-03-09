@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams, MenuController} from 'ionic-angular';
 import {Outcomes} from 'api/collections';
 import {Outcome, OutcomeScope, OUTCOME_SCOPES} from "api/models";
 import {OutcomePage} from "../outcome/outcome";
@@ -19,7 +19,7 @@ export class OutcomesPage {
     this.outcomes = Outcomes.find({}).zone();
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public menuCtrl: MenuController) {
     this.scope = OutcomeScope.DAY;
     this.scopes = OUTCOME_SCOPES;
   }
@@ -31,6 +31,10 @@ export class OutcomesPage {
 
   showOutcome(outcome: Outcome): void {
     this.navCtrl.push(OutcomePage, {outcome});
+  }
+
+  showFilters() {
+    this.menuCtrl.open('filter-menu');
   }
 
   newOutcome() {

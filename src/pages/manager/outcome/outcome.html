@@ -14,20 +14,7 @@
 
 <ion-content>
   <ion-list no-lines>
-    <outcome-item [outcome]="outcome"></outcome-item>
-    <!--<ion-item-sliding>-->
-      <!--<button ion-item class="outcome" (click)="showOutcome(outcome)">-->
-        <!--<ion-icon name="checkmark-circle-outline" color="light" item-left></ion-icon>-->
-        <!--{{outcome.name}}-->
-        <!--<ion-icon name="star-outline" item-right color="light"></ion-icon>-->
-      <!--</button>-->
-      <!--<ion-item-options class="outcome-options">-->
-        <!--<button ion-button color="danger" class="option option-delete" (click)="delete(outcome)">-->
-          <!--<ion-icon name="trash"></ion-icon>-->
-          <!--Delete-->
-        <!--</button>-->
-      <!--</ion-item-options>-->
-    <!--</ion-item-sliding>-->
+    <outcome-item [outcome]="outcome" [details]="false"></outcome-item>
     <ion-list margin-left class="outcome-context">
       <ion-chip>
         <ion-icon name="filing"></ion-icon>
