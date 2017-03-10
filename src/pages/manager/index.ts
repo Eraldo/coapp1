@@ -7,6 +7,8 @@ import {OutcomePage} from "./outcome/outcome";
 import {OutcomeItem} from "./outcome/outcome-item";
 import {NewOutcomePage} from "./outcome/new-outcome";
 import {StepComponent} from "./outcomes/step.component";
+import {OutcomeEditPage} from "./outcome/outcome-edit";
+import {OutcomeForm} from "./outcome/outcome-form";
 
 export const MANAGER_DECLARATIONS = [
   ManagerPage,
@@ -14,8 +16,10 @@ export const MANAGER_DECLARATIONS = [
   AgendaPage,
   OutcomesPage,
   OutcomePage,
-  OutcomeItem,
-  StepComponent,
+  OutcomeEditPage,
   NewOutcomePage,
+  OutcomeItem,
+  OutcomeForm,
+  StepComponent,
   InboxPage
 ];

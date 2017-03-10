@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
 import {Outcome} from "api/models";
 import {Steps} from "api/collections";
+import {OutcomeEditPage} from "./outcome-edit";
 
 @Component({
   selector: 'page-outcome',
@@ -14,6 +15,11 @@ export class OutcomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.outcome = <Outcome>navParams.get('outcome');
     console.log('Selected outcome is: ', this.outcome);
+  }
+
+  edit() {
+    let outcome = this.outcome;
+    this.navCtrl.push(OutcomeEditPage, {outcome});
   }
 
   ngOnInit() {

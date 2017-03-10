@@ -5,7 +5,7 @@
       <button ion-button icon-only>
         <ion-icon name="trash"></ion-icon>
       </button>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="edit()">
         <ion-icon name="create"></ion-icon>
       </button>
     </ion-buttons>
@@ -18,11 +18,11 @@
     <ion-list margin-left class="outcome-context">
       <ion-chip>
         <ion-icon name="filing"></ion-icon>
-        <ion-label>✓</ion-label>
+        <ion-label *ngIf="outcome.inbox">✓</ion-label>
       </ion-chip>
       <ion-chip>
         <ion-icon name="folder"></ion-icon>
-        <ion-label>Day</ion-label>
+        <ion-label>{{outcome.scope}}</ion-label>
       </ion-chip>
       <ion-chip>
         <ion-icon name="time"></ion-icon>
