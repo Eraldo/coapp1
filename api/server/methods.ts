@@ -79,6 +79,7 @@ Meteor.methods({
       'User must be logged-in to create a new outcome');
 
     check(outcome.name, nonEmptyString);
+    console.log('addOutcome: ' + outcome);
 
     return {
       outcomeId: Outcomes.collection.insert({
@@ -91,6 +92,30 @@ Meteor.methods({
         start: outcome.start,
         content: outcome.content,
         createdAt: new Date()
+      })
+    };
+  },
+  updateOutcome(outcome: Outcome) {
+    if (!this.userId) throw new Meteor.Error('unauthorized',
+      'User must be logged-in to update an outcome');
+
+    check(outcome.name, nonEmptyString);
+    console.log('updateOutcome: ' + outcome);
+
+    if (outcome.userId !== this.userId)
+      throw new Meteor.Error('403', 'No permissions!');
+
+    return {
+      outcomeId: Outcomes.collection.update(outcome._id, {
+        $set: {
+          name: outcome.name,
+          status: outcome.status,
+          inbox: outcome.inbox,
+          scope: outcome.scope,
+          deadline: outcome.deadline,
+          start: outcome.start,
+          content: outcome.content,
+        }
       })
     };
   },

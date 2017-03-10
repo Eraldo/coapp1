@@ -8,7 +8,7 @@ import {OutcomeItem} from "./outcome/outcome-item";
 import {NewOutcomePage} from "./outcome/new-outcome";
 import {StepComponent} from "./outcomes/step.component";
 import {OutcomeEditPage} from "./outcome/outcome-edit";
-import {OutcomeForm} from "./outcome/outcome-form";
+import {OutcomeFormPage} from "./outcome/outcome-form";
 
 export const MANAGER_DECLARATIONS = [
   ManagerPage,
@@ -19,7 +19,7 @@ export const MANAGER_DECLARATIONS = [
   OutcomeEditPage,
   NewOutcomePage,
   OutcomeItem,
-  OutcomeForm,
+  OutcomeFormPage,
   StepComponent,
   InboxPage
 ];

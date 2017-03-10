@@ -3,7 +3,7 @@ import {NavController, NavParams, MenuController} from 'ionic-angular';
 import {Outcomes} from 'api/collections';
 import {Outcome, OutcomeScope, OUTCOME_SCOPES} from "api/models";
 import {OutcomePage} from "../outcome/outcome";
-import {NewOutcomePage} from "../outcome/new-outcome";
+import {OutcomeFormPage} from "../outcome/outcome-form";
 
 @Component({
   selector: 'page-outcomes',
@@ -38,7 +38,7 @@ export class OutcomesPage {
   }
 
   newOutcome() {
-    this.navCtrl.push(NewOutcomePage)
+    this.navCtrl.push(OutcomeFormPage)
   }
 
   ionViewDidLoad() {

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavController, NavParams, AlertController} from 'ionic-angular';
 import {Outcome, OutcomeStatus, OutcomeScope, OUTCOME_SCOPES, OUTCOME_STATUSES} from "api/models";
 import {FormBuilder, FormGroup, Validators, FormArray} from "@angular/forms";
@@ -8,22 +8,27 @@ import {MeteorObservable} from "meteor-rxjs";
   selector: 'outcome-form',
   templateUrl: 'outcome-form.html'
 })
-export class OutcomeForm implements OnInit {
-  @Input()
+export class OutcomeFormPage implements OnInit {
   private outcome: Outcome = {status: OutcomeStatus.OPEN, inbox: true, scope: OutcomeScope.DAY};
   private form: FormGroup;
   scopes: OutcomeScope[];
   statuses: OutcomeStatus[];
-  @Output()
-  statusChanges = new EventEmitter();
+  create: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder, private alertCtrl: AlertController) {
+    this.outcome = <Outcome>navParams.get('outcome') || this.outcome;
     this.scopes = OUTCOME_SCOPES;
     this.statuses = OUTCOME_STATUSES;
+    // Checking for an existing outcome.
+    if (!this.outcome._id) {
+      this.create = true;
+    }
   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
+      _id: [this.outcome._id],
+      userId: [this.outcome.userId],
       name: [this.outcome.name, [Validators.required, Validators.minLength(4)]],
       status: [this.outcome.status, Validators.required],
       inbox: [this.outcome.inbox],
@@ -35,12 +40,6 @@ export class OutcomeForm implements OnInit {
         // this.initStep(),
       ]),
     });
-    // init form validity
-    this.statusChanges.emit(this.form.valid);
-    this.form.statusChanges.distinctUntilChanged().subscribe(data => {
-      console.log('Form changes', data);
-      this.statusChanges.emit(this.form.valid)
-    })
   }
 
   initStep() {
@@ -61,8 +60,15 @@ export class OutcomeForm implements OnInit {
 
   save() {
     console.log(this.outcome);
+    let outcome = this.form.value;
+    console.log(outcome);
+
     if (this.form.valid) {
-      MeteorObservable.call('addOutcome', this.outcome).subscribe({
+      let action = 'addOutcome';
+      if (this.outcome._id) {
+        action = 'updateOutcome';
+      }
+      MeteorObservable.call(action, outcome).subscribe({
         next: () => {
           this.navCtrl.pop();
         },

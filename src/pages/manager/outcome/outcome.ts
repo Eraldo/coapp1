@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
 import {Outcome} from "api/models";
 import {Steps} from "api/collections";
-import {OutcomeEditPage} from "./outcome-edit";
+import {OutcomeFormPage} from "./outcome-form";
 
 @Component({
   selector: 'page-outcome',
@@ -19,7 +19,7 @@ export class OutcomePage {
 
   edit() {
     let outcome = this.outcome;
-    this.navCtrl.push(OutcomeEditPage, {outcome});
+    this.navCtrl.push(OutcomeFormPage, {outcome});
   }
 
   ngOnInit() {
